@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONSENT LENS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand-mark">◈</div>
+      <div>
+        <h1>CONSENT LENS</h1>
+        <p>Website Privacy Assistant</p>
+      </div>
+    </header>
+
+    <section class="intro">
+      <h2>Privacy overview</h2>
+      <p>Understand site permissions, spot potential risks, and review old access.</p>
+    </section>
+
+    <section class="policy">
+      <h3>Current website</h3>
+      <h4 id="current-domain">Checking website…</h4>
+      <p id="site-summary" class="muted">
+        Reading available permission settings.
+      </p>
+      <div id="permission-list"></div>
+      <button id="open-settings" class="primary">
+        Review in Chrome settings
+      </button>
+      <button id="mark-reviewed" style="width:100%; margin-top:8px;">
+        Mark as reviewed
+      </button>
+      <button id="trust-site" style="width:100%; margin-top:8px;">
+        Trust this website
+      </button>
+    </section>
+
+    <section class="policy">
+      <h3>Smart risk advisor</h3>
+      <p class="muted">
+        An explainable local assessment based on permission sensitivity
+        and the apparent purpose of the website.
+      </p>
+      <div id="risk-summary"></div>
+    </section>
+
+    <section class="policy">
+      <h3>Privacy reminders</h3>
+
+      <label class="switch-row">
+        <span>
+          <strong>Activity tracking</strong>
+          <small>Store visited website domains and permission changes locally.</small>
+        </span>
+        <input id="tracking-toggle" type="checkbox">
+      </label>
+
+      <label class="switch-row">
+        <span>
+          <strong>Inactivity reminders</strong>
+          <small>Remind you to review permissions on inactive websites.</small>
+        </span>
+        <input id="reminders-toggle" type="checkbox">
+      </label>
+
+      <label class="field">
+        <span>Remind after</span>
+        <select id="reminder-days">
+          <option value="7">7 days</option>
+          <option value="14">14 days</option>
+          <option value="30">30 days</option>
+          <option value="60">60 days</option>
+          <option value="90">90 days</option>
+        </select>
+      </label>
+
+      <button id="save-settings" class="primary">
+        Save preferences
+      </button>
+
+      <p class="note">
+        Reminders never revoke permissions automatically. You choose
+        whether to change access in Chrome settings.
+      </p>
+    </section>
+
+    <section class="policy">
+      <h3>Activity timeline</h3>
+      <p class="muted">Recent visits, permission changes, and reviews.</p>
+      <div id="timeline"></div>
+      <button id="export-data" style="width:100%; margin-top:8px;">
+        Export privacy report
+      </button>
+      <button id="clear-activity" style="width:100%; margin-top:8px;">
+        Clear activity history
+      </button>
+    </section>
+
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
